@@ -1,0 +1,14 @@
+[Unit]
+Description=Ip Mail Service
+After=network-online.target
+
+[Service]
+User=replace
+WorkingDirectory=/opt/ipmail/
+Type=forking
+ExecStart=/bin/bash /opt/ipmail/start.sh
+ExecStop=/bin/bash /opt/ipmail/stop.sh
+TimeoutStartSec=600
+
+[Install]
+WantedBy=multi-user.target
